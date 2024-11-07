@@ -10,17 +10,22 @@ static ssize_t	ft_strlen(const char *s)
 	return (i);
 }
 
-// I Already now that is a character that will be copied
 char	*ft_strdup(char *s)
 {
-	char	*dup_s;
+	char	*new_s;
+	int		i;
 
-	dup_s = malloc((2) * sizeof(char));
-	if (!dup_s)
+	i = 0;
+	new_s = malloc(ft_strlen(s) * sizeof(char));
+	if (!new_s)
 		return (NULL);
-	dup_s[0] = s[0];
-	dup_s[1] = '\0';
-	return (dup_s);
+	while (s[i])
+	{
+		new_s[i] = s[i];
+		i++;
+	}
+	new_s[i] = '\0';
+	return (new_s);
 }
 
 static void	ft_joining(char *s1, char *buffer, char *new_s)
